@@ -1,0 +1,1728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shri Sai Anant Agro | Premium Rice Mill</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --green: #166534;
+            --green-dark: #0f3f25;
+            --leaf: #6f9f3b;
+            --gold: #d5a11e;
+            --cream: #fff8e7;
+            --paper: #ffffff;
+            --ink: #1e2721;
+            --muted: #66736b;
+            --line: #e8e1cf;
+            --shadow: 0 18px 40px rgba(31, 54, 36, 0.12);
+            --shadow-strong: 0 26px 70px rgba(22, 49, 28, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fffdf7;
+            color: var(--ink);
+            font-family: "Poppins", Arial, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--gold);
+            color: #171004;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1180px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .btn {
+            align-items: center;
+            background: var(--gold);
+            border: 0;
+            border-radius: 4px;
+            color: #1c1808;
+            display: inline-flex;
+            font-size: 14px;
+            font-weight: 700;
+            gap: 10px;
+            justify-content: center;
+            letter-spacing: 0;
+            min-height: 46px;
+            overflow: hidden;
+            padding: 12px 22px;
+            position: relative;
+            text-transform: uppercase;
+            transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn::before {
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+            content: "";
+            height: 160%;
+            left: -95%;
+            position: absolute;
+            top: -30%;
+            transform: rotate(18deg);
+            transition: left 0.6s ease;
+            width: 46%;
+        }
+
+        .btn:hover {
+            background: #e7b535;
+            box-shadow: 0 12px 24px rgba(213, 161, 30, 0.28);
+            transform: translateY(-2px);
+        }
+
+        .btn:hover::before {
+            left: 120%;
+        }
+
+        .btn.secondary {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .btn.secondary:hover {
+            background: var(--green-dark);
+            box-shadow: 0 12px 24px rgba(15, 63, 37, 0.22);
+        }
+
+        .topbar {
+            background: var(--green-dark);
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 13px;
+        }
+
+        .topbar-row {
+            align-items: center;
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            min-height: 42px;
+        }
+
+        .topbar-links,
+        .topbar-social {
+            align-items: center;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .topbar i {
+            color: var(--gold);
+            margin-right: 7px;
+        }
+
+        header {
+            backdrop-filter: blur(18px);
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.98), rgba(255, 253, 247, 0.94)),
+                radial-gradient(circle at 8% 50%, rgba(213, 161, 30, 0.14), transparent 24%);
+            border-bottom: 1px solid rgba(232, 225, 207, 0.82);
+            box-shadow: 0 16px 36px rgba(35, 49, 39, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        .header-inner {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            min-height: 92px;
+        }
+
+        .brand {
+            align-items: center;
+            background: rgba(255, 248, 231, 0.56);
+            border: 1px solid rgba(213, 161, 30, 0.22);
+            border-radius: 8px;
+            box-shadow: 0 12px 26px rgba(27, 48, 33, 0.08);
+            display: flex;
+            gap: 13px;
+            padding: 8px 14px 8px 9px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .brand:hover {
+            border-color: rgba(213, 161, 30, 0.5);
+            box-shadow: 0 16px 34px rgba(27, 48, 33, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .brand img {
+            background: #fff;
+            border: 1px solid rgba(232, 225, 207, 0.9);
+            border-radius: 8px;
+            box-shadow: inset 0 0 0 3px rgba(255, 248, 231, 0.9);
+            height: 64px;
+            object-fit: contain;
+            padding: 5px;
+            width: 78px;
+        }
+
+        .brand-name {
+            display: grid;
+            line-height: 1.15;
+        }
+
+        .brand-name strong {
+            color: var(--green-dark);
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .brand-name span {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            align-items: center;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(232, 225, 207, 0.72);
+            border-radius: 8px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            display: flex;
+            gap: 4px;
+            list-style: none;
+            padding: 7px;
+        }
+
+        .nav-menu a {
+            border-radius: 6px;
+            color: #26382d;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 11px 13px;
+            position: relative;
+            text-transform: uppercase;
+            transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(213, 161, 30, 0.12);
+            color: var(--gold);
+            transform: translateY(-1px);
+        }
+
+        .nav-menu a::after {
+            background: var(--gold);
+            border-radius: 999px;
+            bottom: 6px;
+            content: "";
+            height: 2px;
+            left: 50%;
+            position: absolute;
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            transition: transform 0.22s ease;
+            width: calc(100% - 24px);
+        }
+
+        .nav-menu a:hover::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .nav-menu .nav-cta a {
+            background: var(--green);
+            color: #fff;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+
+        .nav-menu .nav-cta a:hover {
+            background: var(--green-dark);
+            color: #fff;
+            box-shadow: 0 10px 18px rgba(15, 63, 37, 0.18);
+        }
+
+        .nav-menu .nav-cta a::after {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            background: var(--green);
+            border: 0;
+            border-radius: 4px;
+            box-shadow: 0 10px 22px rgba(15, 63, 37, 0.2);
+            color: #fff;
+            cursor: pointer;
+            display: none;
+            font-size: 20px;
+            height: 44px;
+            place-items: center;
+            width: 44px;
+        }
+
+        .hero {
+            background:
+                linear-gradient(90deg, rgba(10, 39, 24, 0.84), rgba(21, 73, 41, 0.58), rgba(255, 248, 231, 0.08)),
+                url("SSAA Brands/THAAT BAAT.jpeg") center right / contain no-repeat,
+                linear-gradient(120deg, #173d27, #58843a);
+            color: #fff;
+            min-height: 660px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero::before {
+            animation: heroGlow 7s ease-in-out infinite alternate;
+            background:
+                radial-gradient(circle at 18% 18%, rgba(213, 161, 30, 0.32), transparent 34%),
+                radial-gradient(circle at 78% 42%, rgba(255, 248, 231, 0.18), transparent 30%);
+            content: "";
+            inset: 0;
+            opacity: 0.85;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .hero::after {
+            background: rgba(255, 255, 255, 0.95);
+            bottom: 0;
+            content: "";
+            height: 74px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+
+        .hero-wrap {
+            display: grid;
+            gap: 48px;
+            grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+            min-height: 660px;
+            padding: 86px 0 120px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-copy {
+            align-self: center;
+            animation: fadeUp 0.9s ease both;
+            max-width: 680px;
+        }
+
+        .rice-rain {
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .rice-grain {
+            animation: riceFall var(--fall-duration, 12s) linear infinite;
+            background: linear-gradient(90deg, #fff7d8, #d9b35a);
+            border-radius: 999px;
+            box-shadow: 0 2px 8px rgba(255, 248, 214, 0.45);
+            height: 18px;
+            left: var(--grain-left);
+            opacity: var(--grain-opacity, 0.55);
+            position: absolute;
+            top: -40px;
+            transform: rotate(var(--grain-rotate, 32deg));
+            width: 6px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            display: inline-flex;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 5vw, 72px);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 18px;
+            max-width: 590px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .hero-card {
+            align-self: end;
+            animation: fadeUp 1s ease 0.2s both;
+            background: rgba(255, 255, 255, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            color: var(--ink);
+            display: grid;
+            gap: 18px;
+            justify-self: end;
+            max-width: 390px;
+            overflow: hidden;
+            padding: 24px;
+            position: relative;
+        }
+
+        .hero-card::before {
+            background: linear-gradient(135deg, rgba(213, 161, 30, 0.28), transparent 44%);
+            content: "";
+            height: 150px;
+            position: absolute;
+            right: -60px;
+            top: -60px;
+            transform: rotate(22deg);
+            width: 150px;
+        }
+
+        .hero-card h2 {
+            color: var(--green-dark);
+            font-size: 22px;
+            line-height: 1.25;
+        }
+
+        .hero-card ul {
+            display: grid;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .hero-card li {
+            align-items: flex-start;
+            display: flex;
+            gap: 11px;
+        }
+
+        .hero-card i {
+            color: var(--gold);
+            margin-top: 5px;
+        }
+
+        .stats {
+            margin-top: -74px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stats-grid {
+            background: var(--paper);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
+        }
+
+        .stat {
+            border-right: 1px solid var(--line);
+            padding: 28px 22px;
+            text-align: center;
+        }
+
+        .stat:last-child {
+            border-right: 0;
+        }
+
+        .stat strong {
+            color: var(--green);
+            display: block;
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 9px;
+        }
+
+        .stat strong.counting::after {
+            content: attr(data-suffix);
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        section {
+            padding: 88px 0;
+        }
+
+        .section-heading {
+            margin: 0 auto 44px;
+            max-width: 760px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            color: var(--green-dark);
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.16;
+            margin-bottom: 14px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .divider {
+            background: var(--gold);
+            border-radius: 999px;
+            height: 4px;
+            margin: 18px auto 0;
+            width: 82px;
+        }
+
+        .about-grid {
+            align-items: center;
+            display: grid;
+            gap: 54px;
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+
+        .about-media {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            display: grid;
+            gap: 14px;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            padding: 16px;
+            position: relative;
+        }
+
+        .about-media::after,
+        .brand-gallery::after {
+            animation: softSweep 5s ease-in-out infinite;
+            background: linear-gradient(120deg, transparent 15%, rgba(255, 255, 255, 0.78), transparent 58%);
+            content: "";
+            height: 140%;
+            left: -90%;
+            pointer-events: none;
+            position: absolute;
+            top: -20%;
+            transform: rotate(12deg);
+            width: 38%;
+        }
+
+        .about-media img {
+            background: #fff;
+            border-radius: 6px;
+            height: 230px;
+            object-fit: contain;
+            padding: 14px;
+            width: 100%;
+        }
+
+        .about-media img:first-child {
+            grid-column: span 2;
+            height: 280px;
+        }
+
+        .about-copy h2 {
+            color: var(--green-dark);
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .about-copy p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            display: grid;
+            gap: 14px;
+            list-style: none;
+            margin: 24px 0 30px;
+        }
+
+        .feature-list li {
+            align-items: center;
+            display: flex;
+            gap: 12px;
+            font-weight: 700;
+        }
+
+        .feature-list i {
+            color: var(--gold);
+        }
+
+        .products {
+            background: var(--cream);
+        }
+
+        .product-grid {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .product-card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(27, 48, 33, 0.08);
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-strong);
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            background: #fff;
+            height: 252px;
+            padding: 18px;
+        }
+
+        .product-image img {
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.35s ease;
+            width: 100%;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06) rotate(-1deg);
+        }
+
+        .product-info {
+            border-top: 1px solid var(--line);
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            color: var(--green-dark);
+            font-size: 19px;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: var(--muted);
+            font-size: 14px;
+            min-height: 76px;
+        }
+
+        .process-grid {
+            display: grid;
+            gap: 22px;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .process-step {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 28px 22px;
+            position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .process-step:hover {
+            border-color: rgba(213, 161, 30, 0.65);
+            box-shadow: var(--shadow);
+            transform: translateY(-6px);
+        }
+
+        .process-step span {
+            color: rgba(22, 101, 52, 0.12);
+            font-size: 62px;
+            font-weight: 800;
+            line-height: 1;
+            position: absolute;
+            right: 18px;
+            top: 12px;
+        }
+
+        .process-step i {
+            align-items: center;
+            background: var(--green);
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            font-size: 22px;
+            height: 58px;
+            justify-content: center;
+            margin-bottom: 20px;
+            width: 58px;
+        }
+
+        .process-step h3 {
+            color: var(--green-dark);
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .quality {
+            background:
+                linear-gradient(rgba(15, 63, 37, 0.9), rgba(15, 63, 37, 0.9)),
+                url("SSAA Brands/MOTHER'S CHOICE.jpeg") center / cover;
+            color: #fff;
+        }
+
+        .quality .section-heading h2,
+        .quality .section-heading p {
+            color: #fff;
+        }
+
+        .quality-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .quality-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 8px;
+            padding: 26px;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .quality-item:hover {
+            background: rgba(255, 255, 255, 0.16);
+            transform: translateY(-5px);
+        }
+
+        .quality-item i {
+            color: var(--gold);
+            font-size: 30px;
+            margin-bottom: 16px;
+        }
+
+        .quality-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .quality-item p {
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 14px;
+        }
+
+        .packaging-grid {
+            align-items: center;
+            display: grid;
+            gap: 46px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .packaging-copy h2 {
+            color: var(--green-dark);
+            font-size: clamp(30px, 4vw, 42px);
+            line-height: 1.18;
+            margin-bottom: 18px;
+        }
+
+        .packaging-copy p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .pack-sizes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .pack-sizes span {
+            background: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            color: var(--green-dark);
+            font-weight: 800;
+            padding: 11px 16px;
+        }
+
+        .brand-gallery {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(2, 1fr);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .brand-gallery img {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(31, 54, 36, 0.08);
+            height: 230px;
+            object-fit: contain;
+            padding: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .brand-gallery img:hover {
+            box-shadow: var(--shadow);
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .premium-strip {
+            background: linear-gradient(90deg, #102f1f, #1d6b38, #d5a11e, #1d6b38, #102f1f);
+            color: #fff;
+            overflow: hidden;
+            padding: 16px 0;
+            white-space: nowrap;
+        }
+
+        .premium-track {
+            animation: marquee 24s linear infinite;
+            display: inline-flex;
+            gap: 44px;
+            min-width: max-content;
+        }
+
+        .premium-track span {
+            align-items: center;
+            display: inline-flex;
+            font-size: 14px;
+            font-weight: 800;
+            gap: 10px;
+            letter-spacing: 0;
+            text-transform: uppercase;
+        }
+
+        .premium-track i {
+            color: #fff0a6;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .contact {
+            background: var(--cream);
+        }
+
+        .contact-grid {
+            display: grid;
+            gap: 34px;
+            grid-template-columns: 0.9fr 1.1fr;
+        }
+
+        .contact-panel,
+        .contact-form {
+            background: #fff;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            padding: 32px;
+        }
+
+        .contact-panel h3,
+        .contact-form h3 {
+            color: var(--green-dark);
+            font-size: 24px;
+            margin-bottom: 22px;
+        }
+
+        .contact-item {
+            align-items: flex-start;
+            display: flex;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item i {
+            align-items: center;
+            background: var(--cream);
+            border-radius: 50%;
+            color: var(--gold);
+            display: flex;
+            flex: 0 0 42px;
+            height: 42px;
+            justify-content: center;
+            margin-top: 4px;
+            width: 42px;
+        }
+
+        .contact-item h4 {
+            color: var(--green-dark);
+            margin-bottom: 2px;
+        }
+
+        .contact-item p {
+            color: var(--muted);
+        }
+
+        .form-grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .form-control {
+            background: #fffdf7;
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            color: var(--ink);
+            font: inherit;
+            min-height: 50px;
+            padding: 12px 14px;
+            width: 100%;
+        }
+
+        textarea.form-control {
+            grid-column: span 2;
+            min-height: 135px;
+            resize: vertical;
+        }
+
+        footer {
+            background: #0c2718;
+            color: rgba(255, 255, 255, 0.82);
+            padding-top: 70px;
+        }
+
+        @keyframes riceFall {
+            0% {
+                transform: translate3d(0, -60px, 0) rotate(var(--grain-rotate, 20deg));
+            }
+            100% {
+                transform: translate3d(var(--grain-drift, 70px), 760px, 0) rotate(calc(var(--grain-rotate, 20deg) + 250deg));
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heroGlow {
+            from {
+                opacity: 0.55;
+                transform: scale(1);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1.04);
+            }
+        }
+
+        @keyframes softSweep {
+            0%, 38% {
+                left: -90%;
+            }
+            70%, 100% {
+                left: 130%;
+            }
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1.4fr 0.8fr 0.9fr 1fr;
+            padding-bottom: 44px;
+        }
+
+        .footer-logo {
+            align-items: center;
+            display: flex;
+            gap: 13px;
+            margin-bottom: 18px;
+        }
+
+        .footer-logo img {
+            background: #fff;
+            border-radius: 6px;
+            height: 54px;
+            object-fit: contain;
+            padding: 4px;
+            width: 68px;
+        }
+
+        .footer-logo strong {
+            color: #fff;
+            display: block;
+            font-size: 18px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .footer-col h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 18px;
+        }
+
+        .footer-col p,
+        .footer-col li {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 1040px) {
+            .product-grid,
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 860px) {
+            .topbar-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: grid;
+            }
+
+            .nav-menu {
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 0 0 8px 8px;
+                box-shadow: 0 18px 30px rgba(15, 63, 37, 0.14);
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                left: 0;
+                padding: 10px 20px 18px;
+                position: absolute;
+                right: 0;
+                top: 100%;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-menu li {
+                border-bottom: 1px solid var(--line);
+                width: 100%;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 13px 0;
+            }
+
+            .nav-menu .nav-cta a {
+                margin-top: 10px;
+                padding: 13px 16px;
+                text-align: center;
+            }
+
+            .hero {
+                background:
+                    linear-gradient(90deg, rgba(10, 39, 24, 0.9), rgba(21, 73, 41, 0.72)),
+                    url("SSAA Brands/THAAT BAAT.jpeg") bottom right / 360px auto no-repeat,
+                    linear-gradient(120deg, #173d27, #58843a);
+            }
+
+            .hero-wrap,
+            .about-grid,
+            .packaging-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-wrap {
+                min-height: auto;
+                padding: 70px 0 120px;
+            }
+
+            .hero-card {
+                justify-self: start;
+            }
+
+            .stats-grid,
+            .quality-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: 0;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .header-inner {
+                min-height: 82px;
+            }
+
+            .brand {
+                gap: 9px;
+                padding: 7px 10px 7px 7px;
+            }
+
+            .brand img {
+                height: 54px;
+                width: 64px;
+            }
+
+            .brand-name strong {
+                font-size: 15px;
+            }
+
+            .brand-name span {
+                font-size: 10px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .stats-grid,
+            .product-grid,
+            .process-grid,
+            .quality-grid,
+            .brand-gallery,
+            .footer-grid,
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-bottom: 1px solid var(--line);
+                border-right: 0;
+            }
+
+            .stat:last-child {
+                border-bottom: 0;
+            }
+
+            section {
+                padding: 66px 0;
+            }
+
+            .about-media,
+            .about-media img:first-child {
+                grid-column: auto;
+            }
+
+            .about-media img,
+            .about-media img:first-child,
+            .brand-gallery img {
+                height: 220px;
+            }
+
+            textarea.form-control {
+                grid-column: auto;
+            }
+
+            .contact-panel,
+            .contact-form {
+                padding: 24px;
+            }
+
+            .premium-track {
+                animation-duration: 18s;
+                gap: 28px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="container topbar-row">
+            <div class="topbar-links">
+                <a href="tel:+919326725725"><i class="fas fa-phone-alt"></i>+91 9326725725</a>
+                <a href="mailto:saianantagro725@gmail.com"><i class="fas fa-envelope"></i>saianantagro725@gmail.com</a>
+            </div>
+            <div class="topbar-social">
+                <span><i class="fas fa-map-marker-alt"></i>Tirora, Gondia, Maharashtra</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a class="brand" href="#home" aria-label="Shri Sai Anant Agro home">
+                    <img src="Logos/SSAA Logo.png" alt="Shri Sai Anant Agro logo">
+                    <span class="brand-name">
+                        <strong>Shri Sai Anant Agro</strong>
+                        <span>Premium Rice Mill</span>
+                    </span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#quality">Quality</a></li>
+                    <li class="nav-cta"><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" type="button" aria-label="Open navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="rice-rain" aria-hidden="true">
+                <span class="rice-grain" style="--grain-left: 7%; --fall-duration: 12s; --grain-drift: 80px; --grain-rotate: 18deg; --grain-opacity: 0.35;"></span>
+                <span class="rice-grain" style="--grain-left: 16%; --fall-duration: 15s; --grain-drift: -55px; --grain-rotate: 64deg; --grain-opacity: 0.42;"></span>
+                <span class="rice-grain" style="--grain-left: 28%; --fall-duration: 13s; --grain-drift: 70px; --grain-rotate: 28deg; --grain-opacity: 0.3;"></span>
+                <span class="rice-grain" style="--grain-left: 43%; --fall-duration: 16s; --grain-drift: -90px; --grain-rotate: 86deg; --grain-opacity: 0.38;"></span>
+                <span class="rice-grain" style="--grain-left: 56%; --fall-duration: 11s; --grain-drift: 48px; --grain-rotate: 12deg; --grain-opacity: 0.28;"></span>
+                <span class="rice-grain" style="--grain-left: 67%; --fall-duration: 14s; --grain-drift: -62px; --grain-rotate: 42deg; --grain-opacity: 0.4;"></span>
+                <span class="rice-grain" style="--grain-left: 79%; --fall-duration: 12.5s; --grain-drift: 52px; --grain-rotate: 72deg; --grain-opacity: 0.32;"></span>
+                <span class="rice-grain" style="--grain-left: 91%; --fall-duration: 17s; --grain-drift: -76px; --grain-rotate: 34deg; --grain-opacity: 0.36;"></span>
+            </div>
+            <div class="container hero-wrap">
+                <div class="hero-copy">
+                    <span class="eyebrow">Trusted Rice Manufacturer Since 2021</span>
+                    <h1>Premium Quality Rice From Maharashtra</h1>
+                    <p>Shri Sai Anant Agro processes carefully selected paddy into clean, aromatic and consistent rice varieties for homes, retailers and bulk buyers.</p>
+                    <div class="hero-actions">
+                        <a class="btn" href="#products">View Products <i class="fas fa-arrow-right"></i></a>
+                        <a class="btn secondary" href="#contact">Get Quote <i class="fas fa-phone-alt"></i></a>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <h2>Clean milling, dependable supply and attractive packaging.</h2>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i><span>Direct paddy sourcing from regional farmers.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Modern processing with quality checks at each stage.</span></li>
+                        <li><i class="fas fa-check-circle"></i><span>Retail and bulk packing options for every market.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat">
+                        <strong class="counting" data-target="2021" data-suffix="">0</strong>
+                        <span>Established</span>
+                    </div>
+                    <div class="stat">
+                        <strong class="counting" data-target="8" data-suffix="+">0</strong>
+                        <span>Rice Brands</span>
+                    </div>
+                    <div class="stat">
+                        <strong class="counting" data-target="100" data-suffix="%">0</strong>
+                        <span>Quality Focused</span>
+                    </div>
+                    <div class="stat">
+                        <strong class="counting" data-target="25" data-suffix="kg">0</strong>
+                        <span>Bulk Packs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="premium-strip" aria-label="Company highlights">
+            <div class="premium-track">
+                <span><i class="fas fa-star"></i> Premium Rice Processing</span>
+                <span><i class="fas fa-seedling"></i> Selected Paddy</span>
+                <span><i class="fas fa-award"></i> Clean Grain Quality</span>
+                <span><i class="fas fa-box-open"></i> Attractive Packaging</span>
+                <span><i class="fas fa-shipping-fast"></i> Reliable Dispatch</span>
+                <span><i class="fas fa-star"></i> Premium Rice Processing</span>
+                <span><i class="fas fa-seedling"></i> Selected Paddy</span>
+                <span><i class="fas fa-award"></i> Clean Grain Quality</span>
+                <span><i class="fas fa-box-open"></i> Attractive Packaging</span>
+                <span><i class="fas fa-shipping-fast"></i> Reliable Dispatch</span>
+            </div>
+        </div>
+
+        <section id="about" class="about">
+            <div class="container about-grid">
+                <div class="about-media">
+                    <img src="SSAA Brands/ANANT BHOG.jpeg" alt="Anant Bhog rice packaging">
+                    <img src="SSAA Brands/MEERA KI RASOI.jpeg" alt="Meera Ki Rasoi rice packaging">
+                    <img src="SSAA Brands/MAKHAN MALAI.jpeg" alt="Makhan Malai rice packaging">
+                </div>
+                <div class="about-copy">
+                    <span class="eyebrow">About Our Mill</span>
+                    <h2>Carefully processed rice for everyday kitchens and wholesale supply.</h2>
+                    <p>Based in Tirora, Maharashtra, Shri Sai Anant Agro is built around careful paddy selection, consistent milling and practical packaging that protects freshness from mill to market.</p>
+                    <p>Our team works with local sourcing networks and modern rice processing practices to deliver varieties such as Wada Kolam, Kalimooch, Jaiprakash, Jeera and Pauna rice.</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-seedling"></i> Sourced from trusted farming regions</li>
+                        <li><i class="fas fa-industry"></i> Processed with modern milling standards</li>
+                        <li><i class="fas fa-box-open"></i> Packed for freshness and shelf appeal</li>
+                    </ul>
+                    <a class="btn secondary" href="#process">Our Process</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Our Products</span>
+                    <h2>Rice brands for retail and bulk buyers</h2>
+                    <p>Explore our packaged rice range, made for consistent cooking quality, clean grains and dependable market supply.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/THAAT BAAT.jpeg" alt="Thaat Baat Wada Kolam rice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Thaat Baat</h3>
+                            <p>Premium Wada Kolam rice with appealing grain quality for daily and festive cooking.</p>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/MOTHER'S CHOICE.jpeg" alt="Mother's Choice rice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Mother's Choice</h3>
+                            <p>Clean, reliable rice packed for family kitchens and retail counters.</p>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/SAI SUGANGH.jpeg" alt="Sai Sugangh rice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Sai Sugangh</h3>
+                            <p>Aromatic rice selection made for fragrance, texture and consistent results.</p>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/SAI SUGANGH GEREEN.jpeg" alt="Sai Sugangh green rice pack">
+                        </div>
+                        <div class="product-info">
+                            <h3>Sai Sugangh Green</h3>
+                            <p>Market-ready rice packaging with freshness-focused handling.</p>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/ANANT BHOG.jpeg" alt="Anant Bhog rice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Anant Bhog</h3>
+                            <p>Everyday rice for homes, canteens and regular trade demand.</p>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/CHACHA BHATIJA.jpeg" alt="Chacha Bhatija rice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Chacha Bhatija</h3>
+                            <p>Value-focused rice pack created for broad retail movement.</p>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/MEERA KI RASOI.jpeg" alt="Meera Ki Rasoi rice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Meera Ki Rasoi</h3>
+                            <p>Kitchen-friendly rice with clean grains and dependable cooking performance.</p>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <div class="product-image">
+                            <img src="SSAA Brands/MAKHAN MALAI.jpeg" alt="Makhan Malai rice">
+                        </div>
+                        <div class="product-info">
+                            <h3>Makhan Malai</h3>
+                            <p>Attractive packaging and quality grains for modern retail shelves.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="process">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Rice Milling Process</span>
+                    <h2>From paddy selection to finished packs</h2>
+                    <p>Every stage is handled with attention to cleanliness, grain quality and dependable output.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="process-grid">
+                    <div class="process-step">
+                        <span>01</span>
+                        <i class="fas fa-tractor"></i>
+                        <h3>Paddy Sourcing</h3>
+                        <p>We select paddy from trusted local networks to maintain grain consistency.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>02</span>
+                        <i class="fas fa-water"></i>
+                        <h3>Cleaning</h3>
+                        <p>Paddy is cleaned and prepared before milling to remove impurities.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>03</span>
+                        <i class="fas fa-cogs"></i>
+                        <h3>Milling</h3>
+                        <p>Modern processing helps preserve grain quality, texture and appearance.</p>
+                    </div>
+                    <div class="process-step">
+                        <span>04</span>
+                        <i class="fas fa-box"></i>
+                        <h3>Packaging</h3>
+                        <p>Finished rice is packed in strong bags for freshness and safe delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="quality" class="quality">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Quality Standards</span>
+                    <h2>Built for clean grains and reliable supply</h2>
+                    <p>Our process focuses on quality checks, careful storage and packaging that keeps the product market-ready.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="quality-grid">
+                    <div class="quality-item">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Quality Control</h3>
+                        <p>Regular inspection helps ensure clean, consistent and well-processed rice.</p>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-microscope"></i>
+                        <h3>Grain Selection</h3>
+                        <p>We focus on grain appearance, aroma, texture and suitability for each product line.</p>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-warehouse"></i>
+                        <h3>Safe Storage</h3>
+                        <p>Rice is handled and stored with practical care before dispatch.</p>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h3>Timely Dispatch</h3>
+                        <p>Bulk and retail orders are prepared for smooth delivery coordination.</p>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-award"></i>
+                        <h3>Trusted Brands</h3>
+                        <p>Our packaging range is built to stand out in competitive rice markets.</p>
+                    </div>
+                    <div class="quality-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Farmer Support</h3>
+                        <p>Local sourcing supports regional agriculture and long-term relationships.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="packaging" class="packaging">
+            <div class="container packaging-grid">
+                <div class="packaging-copy">
+                    <span class="eyebrow">Packaging</span>
+                    <h2>Retail-ready designs with practical pack sizes.</h2>
+                    <p>Strong, attractive bags help protect the rice and make each product easy to identify in shops, warehouses and wholesale supply chains.</p>
+                    <p>We can support regular retail demand as well as larger buyer requirements through dependable packaging and dispatch coordination.</p>
+                    <div class="pack-sizes">
+                        <span>1 kg</span>
+                        <span>5 kg</span>
+                        <span>10 kg</span>
+                        <span>25 kg</span>
+                        <span>Custom Bulk</span>
+                    </div>
+                </div>
+                <div class="brand-gallery">
+                    <img src="SSAA Brands/MOTHER'S CHOICE.jpeg" alt="Mother's Choice rice bag">
+                    <img src="SSAA Brands/SAI SUGANGH.jpeg" alt="Sai Sugangh rice bag">
+                    <img src="SSAA Brands/CHACHA BHATIJA.jpeg" alt="Chacha Bhatija rice bag">
+                    <img src="SSAA Brands/MEERA KI RASOI.jpeg" alt="Meera Ki Rasoi rice bag">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="section-heading">
+                    <span class="eyebrow">Contact Us</span>
+                    <h2>Talk to us for rice orders and supply enquiries</h2>
+                    <p>Share your requirement and our team will help with product selection, packaging and dispatch details.</p>
+                    <div class="divider"></div>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-panel">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Address</h4>
+                                <p>N-6730, Tumsar Road, Near Prajapati, Tirora, Maharashtra - 441911, India</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p><a href="tel:+919326725725">Omprakash Asati: +91 93267 25725</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p><a href="mailto:saianantagro725@gmail.com">saianantagro725@gmail.com</a></p>
+                                <p><a href="mailto:sales@shrisaianant.com">sales@shrisaianant.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="contact-form" id="contactForm">
+                        <h3>Send A Message</h3>
+                        <div class="form-grid">
+                            <input class="form-control" type="text" placeholder="Your Name" required>
+                            <input class="form-control" type="tel" placeholder="Phone Number" required>
+                            <input class="form-control" type="email" placeholder="Email Address">
+                            <input class="form-control" type="text" placeholder="Product / Quantity">
+                            <textarea class="form-control" placeholder="Tell us about your requirement" required></textarea>
+                        </div>
+                        <button class="btn secondary" type="submit">Send Enquiry <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="Logos/SSAA Logo.png" alt="Shri Sai Anant Agro logo">
+                    <span>
+                        <strong>Shri Sai Anant Agro</strong>
+                        <span>Premium Rice Mill</span>
+                    </span>
+                </div>
+                <p>Manufacturer and supplier of premium rice varieties from Tirora, Maharashtra, serving retail, wholesale and bulk buyers.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#process">Process</a></li>
+                    <li><a href="#quality">Quality</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Products</h3>
+                <ul>
+                    <li>Wada Kolam Rice</li>
+                    <li>Kalimooch Rice</li>
+                    <li>Jaiprakash Rice</li>
+                    <li>Jeera Rice</li>
+                    <li>Pauna Rice</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>N-6730, Tumsar Road, Tirora, Maharashtra - 441911</p>
+                <p><a href="tel:+919326725725">+91 93267 25725</a></p>
+                <p><a href="mailto:saianantagro725@gmail.com">saianantagro725@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Shri Sai Anant Agro. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+            const navMenu = document.querySelector(".nav-menu");
+            const navLinks = document.querySelectorAll(".nav-menu a");
+            const contactForm = document.getElementById("contactForm");
+            const revealItems = document.querySelectorAll("section, .product-card, .process-step, .quality-item, .contact-panel, .contact-form");
+            const counters = document.querySelectorAll(".counting");
+
+            mobileMenuBtn.addEventListener("click", function () {
+                navMenu.classList.toggle("active");
+            });
+
+            navLinks.forEach(function (link) {
+                link.addEventListener("click", function () {
+                    navMenu.classList.remove("active");
+                });
+            });
+
+            if (contactForm) {
+                contactForm.addEventListener("submit", function (event) {
+                    event.preventDefault();
+                    alert("Thank you for your enquiry. We will get back to you soon.");
+                    contactForm.reset();
+                });
+            }
+
+            revealItems.forEach(function (item) {
+                item.classList.add("reveal");
+            });
+
+            const revealObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            revealItems.forEach(function (item) {
+                revealObserver.observe(item);
+            });
+
+            const countObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    const counter = entry.target;
+                    const target = Number(counter.dataset.target);
+                    const duration = target > 1000 ? 1400 : 900;
+                    const startTime = performance.now();
+
+                    function updateCounter(now) {
+                        const progress = Math.min((now - startTime) / duration, 1);
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        counter.textContent = Math.floor(target * eased);
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target;
+                        }
+                    }
+
+                    requestAnimationFrame(updateCounter);
+                    countObserver.unobserve(counter);
+                });
+            }, { threshold: 0.6 });
+
+            counters.forEach(function (counter) {
+                countObserver.observe(counter);
+            });
+        });
+    </script>
+</body>
+</html>
