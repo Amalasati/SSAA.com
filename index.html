@@ -794,29 +794,60 @@
 
         .product-grid {
             display: grid;
-            gap: 28px;
+            gap: 30px;
             grid-template-columns: repeat(4, minmax(0, 1fr));
+            perspective: 1400px;
         }
 
         .product-card {
-            background: var(--paper);
-            border: 1.5px solid rgba(232, 225, 207, 0.8);
+            background:
+                linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+            border: 1px solid rgba(232, 225, 207, 0.92);
             border-radius: 8px;
-            box-shadow: 0 12px 32px rgba(13, 92, 63, 0.08);
+            box-shadow: 0 14px 34px rgba(5, 41, 31, 0.09);
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            transform-origin: center;
+            transition: transform 0.45s ease, box-shadow 0.45s ease, border-color 0.45s ease, filter 0.45s ease;
+            will-change: transform;
+            z-index: 1;
         }
 
-        .product-card:hover {
-            border-color: rgba(201, 154, 26, 0.4);
-            box-shadow: 0 20px 50px rgba(7, 45, 34, 0.16);
-            transform: translateY(-10px);
+        .product-card::before {
+            background:
+                radial-gradient(circle at 50% 18%, rgba(242, 202, 85, 0.22), transparent 34%),
+                linear-gradient(180deg, rgba(15, 106, 70, 0.06), transparent 46%);
+            content: "";
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            transition: opacity 0.45s ease;
+            z-index: 0;
+        }
+
+        .product-card:hover,
+        .product-card:focus-within,
+        .product-card.is-focused {
+            border-color: rgba(189, 138, 24, 0.58);
+            box-shadow: 0 32px 72px rgba(5, 41, 31, 0.22);
+            filter: saturate(1.08);
+            transform: translateY(-14px) scale(1.04);
+            z-index: 4;
+        }
+
+        .product-card:hover::before,
+        .product-card:focus-within::before,
+        .product-card.is-focused::before {
+            opacity: 1;
         }
 
         .product-image {
-            background: linear-gradient(135deg, #ffffff 0%, #fffbf0 100%);
-            height: 280px;
-            padding: 24px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 232, 0.74)),
+                radial-gradient(circle at 50% 24%, rgba(242, 202, 85, 0.2), transparent 42%);
+            height: 330px;
+            padding: 24px 22px 18px;
             position: relative;
             overflow: hidden;
         }
@@ -837,20 +868,26 @@
         .product-image img {
             height: 100%;
             object-fit: contain;
-            transition: transform 0.4s ease;
+            filter: drop-shadow(0 22px 22px rgba(5, 41, 31, 0.16));
+            transition: transform 0.55s ease, filter 0.55s ease;
             width: 100%;
             position: relative;
             z-index: 1;
         }
 
-        .product-card:hover .product-image img {
-            transform: scale(1.08) rotate(-2deg);
+        .product-card:hover .product-image img,
+        .product-card:focus-within .product-image img,
+        .product-card.is-focused .product-image img {
+            filter: drop-shadow(0 34px 30px rgba(5, 41, 31, 0.22));
+            transform: scale(1.34);
         }
 
         .product-info {
             border-top: 1.5px solid rgba(232, 225, 207, 0.6);
             padding: 24px;
             background: linear-gradient(135deg, #ffffff 0%, rgba(255, 251, 240, 0.3) 100%);
+            position: relative;
+            z-index: 1;
         }
 
         .product-info h3 {
@@ -866,6 +903,32 @@
             font-size: 14px;
             min-height: 70px;
             line-height: 1.65;
+        }
+
+        .product-enquiry {
+            align-items: center;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            border-radius: 6px;
+            color: #fff;
+            display: inline-flex;
+            font-size: 12px;
+            font-weight: 800;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 18px;
+            min-height: 40px;
+            padding: 10px 14px;
+            text-transform: uppercase;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+            width: 100%;
+        }
+
+        .product-enquiry:hover,
+        .product-enquiry:focus {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            box-shadow: 0 12px 26px rgba(189, 138, 24, 0.26);
+            color: #111;
+            transform: translateY(-2px);
         }
 
         .product-label {
@@ -1724,7 +1787,7 @@
                         <span>Established</span>
                     </div>
                     <div class="stat">
-                        <strong class="counting" data-target="8" data-suffix="+">0</strong>
+                        <strong class="counting" data-target="4" data-suffix="+">0</strong>
                         <span>Rice Brands</span>
                     </div>
                     <div class="stat">
@@ -1732,7 +1795,7 @@
                         <span>Quality Focused</span>
                     </div>
                     <div class="stat">
-                        <strong class="counting" data-target="25" data-suffix="kg">0</strong>
+                        <strong class="counting" data-target="26" data-suffix="kg">0</strong>
                         <span>Bulk Packs</span>
                     </div>
                 </div>
@@ -1793,7 +1856,7 @@
                 <div class="product-grid">
                     <article class="product-card">
                         <div class="product-image">
-                            <img src="Assets/THAAT BAAT.jpeg" alt="Thaat Baat Wada Kolam rice">
+                            <img src="Assets/THAAT BAAT.jpeg" alt="Thaat Baat Wada Kolam Rice">
                         </div>
                         <div class="product-info">
                             <span class="product-label">Wada Kolam</span>
@@ -1803,7 +1866,7 @@
                     </article>
                     <article class="product-card">
                         <div class="product-image">
-                            <img src="Assets/MOTHER'S CHOICE.jpeg" alt="Mother's Choice rice">
+                            <img src="Assets/MOTHER'S CHOICE.jpeg" alt="Mother's Choice Rice">
                         </div>
                         <div class="product-info">
                             <span class="product-label">Family Pack</span>
@@ -1813,7 +1876,7 @@
                     </article>
                     <article class="product-card">
                         <div class="product-image">
-                            <img src="Assets/SAI SUGANGH.jpeg" alt="Sai Sugangh rice">
+                            <img src="Assets/SAI SUGANGH.jpeg" alt="Sai Sugangh Rice">
                         </div>
                         <div class="product-info">
                             <span class="product-label">Aromatic</span>
@@ -1823,52 +1886,12 @@
                     </article>
                     <article class="product-card">
                         <div class="product-image">
-                            <img src="Assets/SAI SUGANGH GEREEN.jpeg" alt="Sai Sugangh green rice pack">
+                            <img src="Assets/JEERA FRY.jpg" alt="Sizer Jeera Rice">
                         </div>
                         <div class="product-info">
-                            <span class="product-label">Fresh Pack</span>
-                            <h3>Sai Sugangh Green</h3>
-                            <p>Market-ready rice packaging with freshness-focused handling.</p>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="Assets/ANANT BHOG.jpeg" alt="Anant Bhog rice">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-label">Everyday</span>
-                            <h3>Anant Bhog</h3>
-                            <p>Everyday rice for homes, canteens and regular trade demand.</p>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="Assets/CHACHA BHATIJA.jpeg" alt="Chacha Bhatija rice">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-label">Value Range</span>
-                            <h3>Chacha Bhatija</h3>
-                            <p>Value-focused rice pack created for broad retail movement.</p>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="Assets/MEERA KI RASOI.jpeg" alt="Meera Ki Rasoi rice">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-label">Kitchen Range</span>
-                            <h3>Meera Ki Rasoi</h3>
-                            <p>Kitchen-friendly rice with clean grains and dependable cooking performance.</p>
-                        </div>
-                    </article>
-                    <article class="product-card">
-                        <div class="product-image">
-                            <img src="Assets/MAKHAN MALAI.jpeg" alt="Makhan Malai rice">
-                        </div>
-                        <div class="product-info">
-                            <span class="product-label">Retail Range</span>
-                            <h3>Makhan Malai</h3>
-                            <p>Attractive packaging and quality grains for modern retail shelves.</p>
+                            <span class="product-label">Jeera Rice</span>
+                            <h3>Sizer Jeera Rice</h3>
+                            <p>Distinct Jeera rice pack made for fragrance, quick recognition and strong retail shelf appeal.</p>
                         </div>
                     </article>
                 </div>
@@ -2134,6 +2157,7 @@
             const contactForm = document.getElementById("contactForm");
             const revealItems = document.querySelectorAll("section, .product-card, .process-step, .quality-item, .contact-panel, .contact-form");
             const counters = document.querySelectorAll(".counting");
+            const productCards = document.querySelectorAll(".product-card");
 
             mobileMenuBtn.addEventListener("click", function () {
                 navMenu.classList.toggle("active");
@@ -2201,6 +2225,67 @@
             counters.forEach(function (counter) {
                 countObserver.observe(counter);
             });
+
+            let productFocusQueued = false;
+
+            function focusNearestProductCard() {
+                productFocusQueued = false;
+
+                if (!productCards.length) {
+                    return;
+                }
+
+                const viewportCenter = window.innerHeight / 2;
+                let nearestCard = null;
+                let nearestDistance = Number.POSITIVE_INFINITY;
+
+                productCards.forEach(function (card) {
+                    const rect = card.getBoundingClientRect();
+                    const cardCenter = rect.top + rect.height / 2;
+                    const distance = Math.abs(viewportCenter - cardCenter);
+                    const visible = rect.bottom > 120 && rect.top < window.innerHeight - 120;
+
+                    card.classList.remove("is-focused");
+
+                    if (visible && distance < nearestDistance) {
+                        nearestDistance = distance;
+                        nearestCard = card;
+                    }
+                });
+
+                if (nearestCard) {
+                    nearestCard.classList.add("is-focused");
+                }
+            }
+
+            function queueProductFocus() {
+                if (productFocusQueued) {
+                    return;
+                }
+
+                productFocusQueued = true;
+                requestAnimationFrame(focusNearestProductCard);
+            }
+
+            productCards.forEach(function (card) {
+                card.addEventListener("mouseenter", function () {
+                    productCards.forEach(function (item) {
+                        item.classList.remove("is-focused");
+                    });
+                    card.classList.add("is-focused");
+                });
+
+                card.addEventListener("wheel", function () {
+                    productCards.forEach(function (item) {
+                        item.classList.remove("is-focused");
+                    });
+                    card.classList.add("is-focused");
+                }, { passive: true });
+            });
+
+            window.addEventListener("scroll", queueProductFocus, { passive: true });
+            window.addEventListener("resize", queueProductFocus);
+            focusNearestProductCard();
         });
     </script>
 </body>
